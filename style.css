@@ -1,0 +1,117 @@
+body, p {
+	margin:0px;
+	font-family: Arial;
+}
+
+body {
+	background-color: #8c7674;
+	background-image: url(images/bandas.jpg);
+    background-size: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+body.bodyBand {
+	background: #fff;
+}
+
+h1 {
+	font-size: 40px;
+	text-align: center;
+	margin: 10px 0px;
+}
+
+h2 {
+	font-size: 30px;
+	margin: 10px 0px;
+}
+
+.home ul {
+	width: 100%;
+	list-style-type: none;
+	display: inline-block;
+	background: black;
+	opacity: 0.9;
+	margin: 0px;
+    padding: 0px;
+}
+
+.home ul li {
+	float: left;
+    color: #fff;
+    padding: 15px 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.7s ease;
+}
+
+.home ul li:hover {
+	background: #01DF3A;
+}
+
+.cerrar {
+	position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 60px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.construction-page img {
+	width: 30%;
+    margin-top: 30px;
+    opacity: 0.7;
+}
+
+.construction-page {
+	padding-top:50px;
+	text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+	body {
+		background-size: 120%;
+	}
+
+	.cerrar{
+		font-size: 40px;
+	}
+
+	.construction-page img {
+		width: 50%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	body {
+		background-size: 140%;
+	}
+
+    h2 {
+		font-size: 25px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	body {
+		background-size: 170%;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	body {
+		background-size: 200%;
+	}
+
+	.cerrar {
+		font-size:30px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	body {
+		background-size: 285%;
+	}
+	    
+}

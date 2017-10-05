@@ -1,0 +1,58 @@
+<html ng-app="homeApp" ng-controller="homeController">
+<head>
+	
+  	<script type="text/javascript" src="angular.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+</head>
+<body ng-attr-class="{{showHome ? '' : 'bodyBand'}}">
+
+		<div class="home" ng-if="showHome">
+			<h1>ANGULAR BANDS</h1>
+			<ul>
+				<li ng-repeat="page in pages" ng-click="clickPage('{{page.type}}')">{{page.name}}</li>
+			</ul>
+		</div>
+		<div class="construction-page" ng-if="showConstructionPage">
+			<h2>EN CONSTRUCCIÓN</h2>
+			<img src="images/construction.png">
+			<div class="cerrar" ng-click="clickPage('Home')">X</div>
+		</div>
+<script>
+
+
+	var home = angular.module('homeApp', []);
+	home.controller('homeController', function($scope, $sce) {
+	    $scope.pages = [
+	    	{name:"Home", type:"HomePage"},
+	    	{name:"Foo", type:"ConstructionPage"},
+	    	{name:"Bar", type:"ConstructionPage"},
+	    	{name:"The Rolling Stones", type:"BandPage", videoUrl:"https://www.youtube.com/embed/aRYokc3VBC4", imageUrl:"images/rolling_stones.jpg"},
+	    	{name:"The Beatles", type:"BandPage", videoUrl:"https://www.youtube.com/embed/J55Na0fssvw", imageUrl:"images/the_beatles.jpg"},
+	    	{name:'Queen', type:'BandPage', videoUrl:'https://www.youtube.com/embed/HgzGwKwLmgM', imageUrl:'images/queen.jpg'}
+	    ]
+
+	    titleDefault = "Angular Rocks";
+	    descriptionDefault = "Esto es la descripción por defecto";
+	    keywordsDefault = "angular, rocks, default";
+	    $scope.title = titleDefault;
+	    $scope.description = $sce.trustAsHtml(descriptionDefault);
+	    $scope.keywords = keywordsDefault;
+
+	    $scope.showHome = true;
+	    $scope.showConstructionPage = false;
+	    $scope.showBands = false;
+	});
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
