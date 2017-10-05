@@ -1,6 +1,11 @@
 <html ng-app="homeApp" ng-controller="homeController">
 <head>
 	
+	<title>{{title}}</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="{{description}}">
+  	<meta name="keywords" content="{{keywords}}">
   	<script type="text/javascript" src="angular.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	
@@ -18,6 +23,24 @@
 			<img src="images/construction.png">
 			<div class="cerrar" ng-click="clickPage('Home')">X</div>
 		</div>
+		<div class="band" ng-if="showBands">
+			<div class="cerrar" ng-click="clickPage('Home')">X</div>
+			<h2>{{title}}</h2>
+			<div class="iframe-wrapper">
+				<iframe ng-src="{{videoUrl}}" frameborder="0" allowfullscreen></iframe>
+			</div>
+			
+			<div ng-bind-html="texto" class="texto">
+			</div>
+			<div class="image-wrapper">
+				<img ng-src="{{imageUrl}}">
+			</div>
+
+			<div class="clearfix"></div>
+			
+		</div>
+	
+
 <script>
 
 
@@ -27,9 +50,9 @@
 	    	{name:"Home", type:"HomePage"},
 	    	{name:"Foo", type:"ConstructionPage"},
 	    	{name:"Bar", type:"ConstructionPage"},
-	    	{name:"The Rolling Stones", type:"BandPage", videoUrl:"https://www.youtube.com/embed/aRYokc3VBC4", imageUrl:"images/rolling_stones.jpg"},
-	    	{name:"The Beatles", type:"BandPage", videoUrl:"https://www.youtube.com/embed/J55Na0fssvw", imageUrl:"images/the_beatles.jpg"},
-	    	{name:'Queen', type:'BandPage', videoUrl:'https://www.youtube.com/embed/HgzGwKwLmgM', imageUrl:'images/queen.jpg'}
+	    	{name:"The Rolling Stones", type:"BandPage", videoUrl:"https://www.youtube.com/embed/aRYokc3VBC4", imageUrl:"images/rolling_stones.jpg", description:"<p>The Rolling Stones es una banda británica de rock originaria de Londres. La banda se fundó en abril de 1962 por Brian Jones, Mick Jagger, Keith Richards, Bill Wyman, Ian Stewart y Charlie Watts. Brian Jones fue despedido en junio de 1969, falleciendo tres semanas después, siendo reemplazado por el guitarrista Mick Taylor, que dejaría el grupo en 1975 y sería a su vez reemplazado por Ron Wood. Con el retiro de Bill Wyman en 1993 se incluyó al bajista Darryl Jones que, aunque toca con la banda desde la grabación del álbum Voodoo Lounge en 1994, no es un miembro oficial.</p><p>Son considerados una de las más grandes e influyentes bandas de toda la historia del rock, siendo la agrupación que sentó las bases del rock contemporáneo. Contando desde sus inicios con el favor de la crítica, algunos de sus materiales están considerados entre los mejores de todos los tiempos; entre ellos destacan Beggars Banquet (1968), Let It Bleed (1969), Sticky Fingers (1971) y quizá su mejor obra, Exile on Main St. (1972). En 1989 fueron incluidos en el Salón de la Fama del Rock and Roll, y en 2004 la revista estadounidense Rolling Stone los colocó en el puesto No. 4 en su lista de Los 50 Mejores Artistas de todos los Tiempos. Ningún grupo de rock hasta la fecha ha sostenido tan duradera y todavía mundialmente reconocida trayectoria como The Rolling Stones; con Jagger, Richards y Watts como miembros fundadores en activo, continúan siendo la banda más longeva de la historia del rock.</p>", keywords:"Rollin Stones, Mick Jagger, Londres, Voodoo Lounge"},
+	    	{name:"The Beatles", type:"BandPage", videoUrl:"https://www.youtube.com/embed/J55Na0fssvw", imageUrl:"images/the_beatles.jpg", description:"<p>The Beatles fue una banda de pop/rock inglesa activa durante la década de 1960, y reconocida como la más exitosa comercialmente y la más alabada por la crítica en la historia de la música popular. Formada en Liverpool, estuvo constituida desde 1962 por John Lennon (guitarra rítmica, vocalista), Paul McCartney (bajo, vocalista), George Harrison (guitarra solista, vocalista) y Ringo Starr (batería, vocalista). Enraizada en el skiffle y el rock and roll de los años 1950, la banda trabajó más tarde con distintos géneros musicales, que iban desde las baladas pop hasta el rock psicodélico, incorporando a menudo elementos clásicos, entre otros, de forma innovadora en sus canciones. La naturaleza de su enorme popularidad, que había emergido primeramente con la moda de la «Beatlemanía», se transformó al tiempo que sus composiciones se volvieron más sofisticadas. Llegaron a ser percibidos como la encarnación de los ideales progresistas, extendiendo su influencia en las revoluciones sociales y culturales de la década de 1960.</p><p>Con una formación inicial de cinco componentes que incluía a Lennon, McCartney, Harrison, Stuart Sutcliffe (bajo) y Pete Best (batería), la banda construyó su reputación en los clubes de Liverpool y Hamburgo sobre un período de tres años a partir de 1960. Sutcliffe abandonó la formación en 1961, y Best fue reemplazado por Starr al año siguiente. Establecidos como grupo profesional después de que Brian Epstein les ofreciera ser su representante, y con su potencial musical mejorado por la creatividad del productor George Martin, lograron éxito comercial en el Reino Unido a finales de 1962 con su primer sencillo, «Love Me Do». A partir de ahí, fueron adquiriendo popularidad internacional a lo largo de los siguientes años, en los cuales hicieron un extenso número de giras hasta 1966, año en que cesaron la actividad en vivo para dedicarse únicamente a la grabación en el estudio hasta su disolución en 1970. Después, todos sus integrantes se embarcaron en exitosas carreras independientes de diversa duración. Lennon sería asesinado a las afueras de su casa de Nueva York en 1980, y Harrison fallecería de cáncer en 2001. McCartney y Starr, los dos miembros sobrevivientes, aún permanecen musicalmente activos.</p>", keywords:"Beatles, Liverpool, Ringo Starr, George Harrison"},
+	    	{name:'Queen', type:'BandPage', videoUrl:'https://www.youtube.com/embed/HgzGwKwLmgM', imageUrl:'images/queen.jpg', description:"<p>Queen es una banda británica de rock formada en 1970 en Londres por el cantante Freddie Mercury, el guitarrista Brian May, el baterista Roger Taylor y el bajista John Deacon. Si bien el grupo ha presentado bajas de dos de sus miembros (Mercury, fallecido en 1991, y Deacon, retirado en 1997), los integrantes restantes, May y Taylor, continúan trabajando bajo el nombre Queen, por lo que la banda aún es considerada activa.</p><p>El grupo gozó de un gran éxito en el Reino Unido con álbumes como Sheer Heart Attack (1974) y A Night at the Opera (1975). Este último llamó la atención internacionalmente, en especial por el sencillo \"Bohemian Rhapsody\", y colocó a Queen en un primer plano de la escena musical. Tuvieron una significativa repercusión en Estados Unidos a finales de los años 1970, ya con un numeroso repertorio de éxitos. A nivel artístico, se ha destacado su diversidad musical, sus arreglos en múltiples capas y sus armonías vocales. Es considerada una banda de gran influencia en el desarrollo del hard rock y el heavy metal, incorporando elementos del glam rock, rock progresivo, folk, blues y pop. Fue una de las primeras agrupaciones musicales en hacer de sus conciertos espectáculos muy vistosos mediante el uso bombas de humo, flashpots o innovadores sistemas de luces móviles, además de promover la participación del público en los mismos, contribuyendo así al auge del arena rock. La crítica ha señalado el carisma de Freddie Mercury como una parte fundamental de sus presentaciones.</p>", keywords:"Queen, Freddie Mercury, May, Taylor"}
 	    ]
 
 	    titleDefault = "Angular Rocks";
@@ -42,6 +65,40 @@
 	    $scope.showHome = true;
 	    $scope.showConstructionPage = false;
 	    $scope.showBands = false;
+	    $scope.clickPage = function(page) {
+
+	    	// Oculto las páginas de inicio
+	    	$scope.showHome = false,
+	    	$scope.showConstructionPage = false,
+	    	$scope.showBands = false;
+
+	    	if((this.page && this.page.type == "HomePage") || page == "Home"){
+	    		$scope.showHome = true;
+	    	}
+	    	else if (this.page.type == "ConstructionPage") {
+	    		$scope.showConstructionPage = true;
+	    	}
+	    	else if (this.page.type == "BandPage" ) {
+	    		$scope.showBands = true;
+	    		$scope.title = this.page.name;
+
+	    		splitText = this.page.description.split(new RegExp ('<p>|</p>','g'));
+	    		$scope.description = splitText[1];
+
+	    		$scope.texto = $sce.trustAsHtml(this.page.description);
+
+	    		$scope.keywords = this.page.keywords;
+	    		$scope.videoUrl = $sce.trustAsResourceUrl(this.page.videoUrl); 
+	    		$scope.imageUrl = this.page.imageUrl;
+
+	    	}
+
+	    	if ((this.page && this.page.type != "BandPage") || page == "Home"){
+	    		$scope.title = titleDefault;
+			    $scope.description = $sce.trustAsHtml(descriptionDefault);
+			    $scope.keywords = keywordsDefault;
+	    	}
+	    }
 	});
 </script>
 
